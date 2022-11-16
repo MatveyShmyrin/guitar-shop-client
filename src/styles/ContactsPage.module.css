@@ -1,0 +1,16 @@
+.contactsPage {
+  height: fit-content;
+  width: 100%;
+  margin-top: 86px;
+}
+
+.contactsPageH1 {
+  margin-top: 40px;
+  text-align: center;
+}
+
+.contactPageAccordion {
+  margin-top: 50px;
+}
+
+/*# sourceMappingURL=ContactsPage.module.css.map */
