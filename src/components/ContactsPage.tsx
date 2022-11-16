@@ -1,9 +1,15 @@
-import React from 'react';
+import React, {useState} from 'react';
 import styles from "../styles/ContactsPage.module.css";
-import {Accordion, Col, Container, Row} from "react-bootstrap";
+import {Accordion, Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
+import {Input} from "@mui/material";
 
 
 const ContactsPage = () => {
+
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
     return (
         <Container className={styles.contactsPage}>
             <Container className = {styles.contactsPageH1}>
@@ -128,6 +134,40 @@ const ContactsPage = () => {
                     </Accordion.Body>
                 </Accordion.Item>
             </Accordion>
+            </Container>
+            <Container>
+                <Container className = {styles.contactsPageH1}>
+                </Container>
+
+                <Container>
+                    <Button variant="primary" onClick={handleShow}>
+                    Feedback
+                </Button>
+                    <Modal show={show} onHide={handleClose}>
+                        <Modal.Header closeButton>
+                            <Modal.Title>Contact us</Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <form action={"https://formsubmit.co/7704525af52e9fbabc44cc3712c8844e"} method={"POST"}>
+                                <input type="hidden" name="_captcha" value="false"/>
+                                Your name:
+                                <React.Fragment><br/></React.Fragment>
+                                <Input type={"text"} name={"name"} required/>
+                                <React.Fragment><br/></React.Fragment>
+                                Your Email:
+                                <React.Fragment><br/></React.Fragment>
+                                <Input type={"email"} name={"email"} required/>
+                                <React.Fragment><br/></React.Fragment>
+                                Your message:
+                                <React.Fragment><br/></React.Fragment>
+                                <Input type={"text"} name={"message"} required/>
+                                <React.Fragment><br/></React.Fragment>
+                                <React.Fragment><br/></React.Fragment>
+                                <Button type={"submit"}>Send</Button>
+                            </form>
+                        </Modal.Body>
+                    </Modal>
+                </Container>
             </Container>
         </Container>
     );

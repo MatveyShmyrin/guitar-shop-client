@@ -26,19 +26,6 @@ const AdminPanelAddItem = () => {
             description: descriptionInputRef.current.value,
             type: typeInputRef.current.value
         }})
-        const requestOptions = {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                id: idInputRef.current.value,
-                name: nameInputRef.current.value,
-                imgSrc: imageInputRef.current.value,
-                price: priceInputRef.current.value,
-                description: descriptionInputRef.current.value,
-                type: typeInputRef.current.value
-            })
-        };
-        fetch("http://localhost:3001/items", requestOptions);
     }
 
 

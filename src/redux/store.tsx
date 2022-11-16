@@ -1,7 +1,8 @@
 import {createStore} from "redux";
 
 const initialState = {
-    items: []
+    items: [],
+    auth: false
 }
 
 const reducer = (state: any = initialState, action:any) => {
@@ -10,6 +11,16 @@ const reducer = (state: any = initialState, action:any) => {
             return {
                 ...state,
                 items: [...state.items, action.payload]
+            }
+        case "AUTH":
+            return {
+                ...state,
+                auth: true
+            }
+        case "DELETE_ITEM":
+            return {
+                ...state,
+                items: state.items.filter((item: any) => item.id !== action.payload)
             }
         default:
             return state;

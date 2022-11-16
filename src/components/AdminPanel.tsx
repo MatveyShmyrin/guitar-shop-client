@@ -6,7 +6,7 @@ import {Container} from "react-bootstrap";
 const AdminPanel = () => {
 
     return (
-        <Container>
+        <Container style={{ marginTop:"100px" }}>
             <h1>Admin Panel</h1>
             <AdminPanelAddItem/>
             <AdminPanelItems/>
