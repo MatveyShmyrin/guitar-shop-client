@@ -10,12 +10,15 @@ const AdminPanelItem = (props:any) => {
         dispatch({type: "DELETE_ITEM", payload: props.id})
     }
     return (
-        <div style={{width:"1000px", height:"50px"}}>
+        <div style={{width:"500px", height:"150px", border: "1px solid black"}}>
             {props.id}
-            <CCardImage  style={{width:"50px", height:"50px"}} orientation="top" src={props.img} />
+            <CCardImage  style={{width:"45px", height:"45px"}} orientation="top" src={props.img} />
             {props.name}
-            {props.description}
-            {props.price}
+            <React.Fragment><br/></React.Fragment>
+            Description: {props.description}
+            <React.Fragment><br/></React.Fragment>
+            Price: {props.price}
+            <React.Fragment><br/></React.Fragment>
             <button onClick={deleteItem}>Delete</button>
         </div>
     );

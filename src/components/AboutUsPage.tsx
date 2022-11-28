@@ -18,9 +18,7 @@ const AboutUsPage = () => {
                         Everyone from beginners and hobbyists to the world’s most acclaimed artists and performers have used Fender instruments and amps, in the process making the company not only a revered music industry name, but also a cultural icon.
                         It is our vision to continue championing THE SPIRIT OF ROCK-N-ROLL® throughout the world and our mission to exceed the expectations of music enthusiasts worldwide.
                     </Col>
-                    <Col>
                         <img src="/img/aboutus1.jpg" className={styles.image}/>
-                    </Col>
                 </Row>
             </Container>
             <Container>

@@ -2,19 +2,26 @@ import React, {useEffect, useState} from 'react';
 import CatalogItem from "./CatalogItem";
 import {Button, Container} from "react-bootstrap";
 import styles from "../styles/CatalogItems.module.css"
-import {useDispatch, useSelector} from "react-redux";
+import {useSelector} from "react-redux";
+
 import {RootState} from "../index";
 import {CRow} from "@coreui/react";
-
+import Pagination from "./Pagination";
 
 const CatalogItems = () => {
 
-    let state = useSelector<RootState,any>(store => store);
+    let items = useSelector<RootState,any>(store => store.items);
     let acousticType = useSelector<RootState,any>(store => store.acousticType);
     let electroType = useSelector<RootState,any>(store => store.electroType);
     let sortType = useSelector<RootState,any>(store => store.sortType);
     let minPrice = useSelector<RootState,any>(store => store.minPrice);
     let maxPrice = useSelector<RootState,any>(store => store.maxPrice);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage] = useState(12);
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const paginate = (pageNumber:any) => setCurrentPage(pageNumber);
+
 
     const filterFunction = (item:any) => {
         if (((item.type == "acoustic" && acousticType == true) || (item.type == "electro" && electroType == true)) && ((item.price >= minPrice) && (item.price <= maxPrice))){
@@ -23,7 +30,7 @@ const CatalogItems = () => {
         return false;
     }
 
-    let catalogItemsFiltered = state.items.filter((item:any) => filterFunction(item));
+    let catalogItemsFiltered = items.filter((item:any) => filterFunction(item));
     let catalogItemsSorted = catalogItemsFiltered;
     if (sortType == "a-z"){
         catalogItemsSorted = catalogItemsFiltered.sort((a: any, b:any) =>
@@ -65,8 +72,9 @@ const CatalogItems = () => {
     }
 
 
-
-    let catalogItems = catalogItemsSorted.map((item:any) =>
+    let currentItems = catalogItemsSorted.slice(indexOfFirstItem, indexOfLastItem);
+    let totalItems = catalogItemsSorted.length;
+    let catalogItems = currentItems.map((item:any) =>
         <CatalogItem
             id = {item.id}
             name = {item.name}
@@ -85,6 +93,8 @@ const CatalogItems = () => {
                     {catalogItems}
                 </CRow>
             </Container>
+            <React.Fragment><br/></React.Fragment>
+            <Pagination catalogItemsSorted = {catalogItemsSorted} itemsPerPage={itemsPerPage} totalItems={totalItems} paginate={paginate} />
         </div>
 
     );

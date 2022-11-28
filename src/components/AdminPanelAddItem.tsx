@@ -62,6 +62,7 @@ const AdminPanelAddItem = () => {
             <React.Fragment>
                 <br/>
             </React.Fragment>
+            <React.Fragment><br/></React.Fragment>
             <Button onClick = {addItemOnClick}>Add Item</Button>
         </div>
     );

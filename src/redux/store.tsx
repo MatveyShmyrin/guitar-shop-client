@@ -7,7 +7,8 @@ const initialState = {
     acousticType: true,
     electroType: true,
     minPrice: 1,
-    maxPrice: 99999
+    maxPrice: 99999,
+    pageNumbers: [1]
 }
 
 const reducer = (state: any = initialState, action:any) => {
@@ -21,6 +22,16 @@ const reducer = (state: any = initialState, action:any) => {
             return {
                 ...state,
                 items: action.payload
+            }
+        case "ADD_PAGE_NUMBERS":
+            return {
+                ...state,
+                pageNumbers: [...state.pageNumbers, action.payload]
+            }
+        case "DELETE_PAGE_NUMBERS":
+            return {
+                ...state,
+                pageNumbers: [1]
             }
         case "AUTH":
             return {

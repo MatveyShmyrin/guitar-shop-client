@@ -16,8 +16,7 @@ function App() {
 
     const dispatch = useDispatch();
     const items = useSelector<RootState,any>(store => store.items);
-    const [currentPage, setCurrentPage] = useState(1);
-    const [itemsPerPage, setItemsPerPage] = useState(12);
+
 
     async function fetchItems(){
         const response = await axios.get("https://my-json-server.typicode.com/MatveyShmyrin/guitar-shop-db-file/items")
@@ -28,8 +27,6 @@ function App() {
     useEffect(() => {
         fetchItems();
     },[]);
-
-
 
 
     return (
