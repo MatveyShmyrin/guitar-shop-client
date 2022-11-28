@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import styles from "../styles/ContactsPage.module.css";
-import {Accordion, Button, Col, Container, Form, Modal, Row} from "react-bootstrap";
+import {Accordion, Button, Col, Container, Modal, Row} from "react-bootstrap";
 import {Input} from "@mui/material";
 
 

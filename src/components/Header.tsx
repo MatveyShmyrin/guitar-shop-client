@@ -18,11 +18,11 @@ const Header = () => {
                         <Nav className="me-auto"></Nav>
                         <div>
                             <Nav style={{marginTop: "5px"}}>
-                            <Nav.Link><Link to="/" style={{ color: 'black',  textDecoration: "none" }}>Home</Link></Nav.Link>
-                            <Nav.Link><Link to="/catalog" style={{ color: 'black',  textDecoration: "none" }}>Catalog</Link></Nav.Link>
-                            <Nav.Link><Link to="/about" style={{ color: 'black',  textDecoration: "none" }}>About Us</Link></Nav.Link>
-                            <Nav.Link><Link to="/contacts" style={{ color: 'black',  textDecoration: "none" }}>Contacts</Link></Nav.Link>
-                            <Nav.Link><Link to="/auth" style={{ color: 'black',  textDecoration: "none" }}>Admin Panel</Link></Nav.Link>
+                                <div><Nav.Link><Link to="/" style={{ color: 'black',  textDecoration: "none" }}>Home</Link></Nav.Link></div>
+                                <div><Nav.Link><Link to="/catalog" style={{ color: 'black',  textDecoration: "none" }}>Catalog</Link></Nav.Link></div>
+                                <div><Nav.Link><Link to="/about" style={{ color: 'black',  textDecoration: "none" }}>About Us</Link></Nav.Link></div>
+                                <div><Nav.Link><Link to="/contacts" style={{ color: 'black',  textDecoration: "none" }}>Contacts</Link></Nav.Link></div>
+                                <div><Nav.Link><Link to="/auth" style={{ color: 'black',  textDecoration: "none" }}>Admin Panel</Link></Nav.Link></div>
                             </Nav>
                         </div>
                     </Navbar.Collapse>
@@ -30,6 +30,5 @@ const Header = () => {
             </Navbar>
     )
 };
-
 
 export default Header;

@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import Header from "./components/Header";
 import HomePage from "./components/HomePage";
 import styles from './styles/App.module.css'
@@ -13,19 +13,24 @@ import {useDispatch, useSelector} from "react-redux";
 import {RootState} from "./index";
 
 function App() {
-    const dispatch = useDispatch();
 
-    async function firstFetchItems(){
+    const dispatch = useDispatch();
+    const items = useSelector<RootState,any>(store => store.items);
+    const [currentPage, setCurrentPage] = useState(1);
+    const [itemsPerPage, setItemsPerPage] = useState(12);
+
+    async function fetchItems(){
         const response = await axios.get("https://my-json-server.typicode.com/MatveyShmyrin/guitar-shop-db-file/items")
-        response.data.map((item: any) => 
-            dispatch({type: "ADD_NEW_ITEM", payload: item})
-        );
+        dispatch({type: "SET_ITEMS", payload: response.data})
     }
     let storeAuth = useSelector<RootState, number|"">(store => store.auth);
 
     useEffect(() => {
-        firstFetchItems();
+        fetchItems();
     },[]);
+
+
+
 
     return (
     <div className={styles.app}>

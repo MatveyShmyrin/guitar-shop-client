@@ -33,32 +33,32 @@ const AdminPanelAddItem = () => {
     return (
         <div>
             Id:
-            <input ref = {idInputRef}></input>
+            <input ref = {idInputRef}/>
             <React.Fragment>
                 <br/>
             </React.Fragment>
             Name:
-            <input ref = {nameInputRef}></input>
+            <input ref = {nameInputRef}/>
             <React.Fragment>
                 <br/>
             </React.Fragment>
             Image:
-            <input ref = {imageInputRef}></input>
+            <input ref = {imageInputRef}/>
             <React.Fragment>
                 <br/>
             </React.Fragment>
             Price:
-            <input ref = {priceInputRef}></input>
+            <input ref = {priceInputRef}/>
             <React.Fragment>
                 <br/>
             </React.Fragment>
             Description:
-            <input ref = {descriptionInputRef}></input>
+            <input ref = {descriptionInputRef}/>
             <React.Fragment>
                 <br/>
             </React.Fragment>
             Type:
-            <input ref = {typeInputRef}></input>
+            <input ref = {typeInputRef}/>
             <React.Fragment>
                 <br/>
             </React.Fragment>
